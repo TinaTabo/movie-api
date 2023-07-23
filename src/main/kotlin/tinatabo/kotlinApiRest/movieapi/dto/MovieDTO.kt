@@ -7,6 +7,6 @@ import jakarta.persistence.Entity
 //-- recibir los datos de la API. Esto incluye definir el formato JSON de las solicitudes y respuestas.
 data class MovieDTO(
     var id: Int = -1,
-    var name: String,
+    var name: String = "Default movie",
     var rating: Double
 )

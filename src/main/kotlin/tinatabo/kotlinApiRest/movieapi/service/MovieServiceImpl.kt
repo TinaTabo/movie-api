@@ -25,7 +25,7 @@ class MovieServiceImpl(
         }
     }
 
-    //-- Funcion para obtener UNA pelicula identificandola por su ID
+    //-- Funcion para el método GET: obtener UNA pelicula identificandola por su ID
     override fun getMovie(id: Int): MovieDTO {
         val optionalMovie = movieRepository.findById(id)
         val movie = optionalMovie.orElseThrow{MovieException("Movie with id = $id is not present")}
@@ -48,5 +48,33 @@ class MovieServiceImpl(
         //-- Entity no tiene ID, pero dto sí, por ello al retornar usamos el método fromEntity
         //-- así sí tendrá un ID
         return movieMapper.fromEntity(movie)
+    }
+
+    //-- Funcion para el método PUT: Modifica los datos de una pelicula en la BBDD
+    override fun updateMovie(movieDTO: MovieDTO): MovieDTO {
+        //-- Obtenemos si la pelicula que queremos modificar existe y en caso contrario: Excepcion
+        val exists = movieRepository.existsById(movieDTO.id)
+        if (!exists){
+            throw MovieException("Movie with id = ${movieDTO.id} is not present")
+        }
+        //-- Si alguno de los campos falta, estos toman sus valores por defecto, en ese caso
+        //-- se lanza una excepción para que el usuario envía todos los campos del objeto película.
+        if (movieDTO.rating == 0.0 || movieDTO.name == "Default movie"){
+            throw MovieException("Complete movie object is expected")
+        }
+        //-- guardamos las modificaciones
+        movieRepository.save(movieMapper.toEntity(movieDTO))
+        //-- retornamos la pelicula
+        return movieDTO
+    }
+
+    //-- Funcion para el método DELETE: Elimina una pelicula de la BBDD
+    override fun deleteMovie(id: Int) {
+        val exists = movieRepository.existsById(id)
+        if (!exists){
+            throw MovieException("Movie with id = $id is not present")
+        }
+
+        movieRepository.deleteById(id)
     }
 }
