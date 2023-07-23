@@ -19,7 +19,7 @@ class ExceptionHandler {
     //-- para Movies.
     @ExceptionHandler(MovieException::class)
     fun movieExceptionHandler(exception: Exception): ResponseEntity<ApiError>{
-        val error = ApiError(exception.message)
+        val error = ApiError(exception.message, HttpStatus.NOT_FOUND)
         return ResponseEntity(error, error.status)
     }
 
