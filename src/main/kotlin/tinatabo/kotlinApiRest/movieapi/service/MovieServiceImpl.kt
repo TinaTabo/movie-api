@@ -11,6 +11,12 @@ class MovieServiceImpl(
     private val movieMapper: MovieMapper
 ) : MovieService {
     override fun createMovie(movieDTO: MovieDTO): MovieDTO {
+        //-- Control de errores
+        if (movieDTO.id != -1){
+            throw IllegalArgumentException("Id must be null or -1.")
+        }
+
+
         //-- como el id de una pelicula se genera solo al introducirlo en la BBDD tenemos el
         //-- problema de que para pasarle el MovieDTO tenemos name, tenemos rating pero no
         //-- tenemos ID.

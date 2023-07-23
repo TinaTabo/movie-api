@@ -6,7 +6,7 @@ import jakarta.persistence.Entity
 //-- En el contexto de una API REST, los DTO se utilizan para definir cómo se deben enviar o
 //-- recibir los datos de la API. Esto incluye definir el formato JSON de las solicitudes y respuestas.
 data class MovieDTO(
-    var id: Int,
+    var id: Int = -1,
     var name: String,
     var rating: Double
 )

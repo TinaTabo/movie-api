@@ -1,5 +1,7 @@
 package tinatabo.kotlinApiRest.movieapi.web.rest
 
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -12,7 +14,7 @@ class MovieResource(
 ) {
 
     @PostMapping
-    fun createMovie(@RequestBody movieDTO: MovieDTO): MovieDTO{
-        return movieService.createMovie(movieDTO)
+    fun createMovie(@RequestBody movieDTO: MovieDTO): ResponseEntity<MovieDTO>{
+        return ResponseEntity(movieService.createMovie(movieDTO), HttpStatus.CREATED)
     }
 }
