@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 import tinatabo.kotlinApiRest.movieapi.dto.MovieDTO
 import tinatabo.kotlinApiRest.movieapi.service.MovieService
 
+//-- Este archivo es como el routing en JS
 @RestController
 class MovieResource(
     private val movieService: MovieService
