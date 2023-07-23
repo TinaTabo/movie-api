@@ -1,10 +1,14 @@
 package tinatabo.kotlinApiRest.movieapi.repository
 
+import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import tinatabo.kotlinApiRest.movieapi.dto.MovieDTO
 import tinatabo.kotlinApiRest.movieapi.entity.Movie
 
-interface MovieRepository: CrudRepository<Movie, Int>
+interface MovieRepository: CrudRepository<Movie, Int> {
+    @Query("SELECT m FROM Movie AS m")
+    fun getAllMovies(): List<Movie>
+}
 
 /*
 * Claro, resumiendo, MovieRepository es una interfaz que proporciona métodos

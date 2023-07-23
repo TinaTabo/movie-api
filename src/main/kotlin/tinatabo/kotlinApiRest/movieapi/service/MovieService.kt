@@ -7,5 +7,8 @@ import tinatabo.kotlinApiRest.movieapi.dto.MovieDTO
 //-- Apareceran dos ventanas emergentes -> dar ok en ambas.
 interface MovieService {
 
+    fun getMovies(): List<MovieDTO>
+    fun getMovie(id: Int): MovieDTO
     fun createMovie(movieDTO: MovieDTO): MovieDTO
+
 }
