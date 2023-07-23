@@ -1,0 +1,12 @@
+2023-07-23 12:45:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MOVIE" not found (this database is empty); SQL statement:
+insert into movie (name,rating,id) values (?,?,default) [42104-214]
+2023-07-23 12:55:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
+The object is already closed [90007-214]
+2023-07-23 12:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
+The object is already closed [90007-214]
+2023-07-23 13:03:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: El objeto ya está cerrado
+The object is already closed [90007-214]

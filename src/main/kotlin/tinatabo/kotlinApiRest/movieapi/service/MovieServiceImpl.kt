@@ -1,9 +1,11 @@
 package tinatabo.kotlinApiRest.movieapi.service
 
+import org.springframework.stereotype.Service
 import tinatabo.kotlinApiRest.movieapi.dto.MovieDTO
 import tinatabo.kotlinApiRest.movieapi.repository.MovieRepository
 import tinatabo.kotlinApiRest.movieapi.utils.mapper.MovieMapper
 
+@Service
 class MovieServiceImpl(
     private  val movieRepository: MovieRepository,
     private val movieMapper: MovieMapper

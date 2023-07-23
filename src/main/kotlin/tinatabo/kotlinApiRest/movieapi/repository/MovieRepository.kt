@@ -4,7 +4,6 @@ import org.springframework.data.repository.CrudRepository
 import tinatabo.kotlinApiRest.movieapi.dto.MovieDTO
 import tinatabo.kotlinApiRest.movieapi.entity.Movie
 
-//--
 interface MovieRepository: CrudRepository<Movie, Int>
 
 /*
